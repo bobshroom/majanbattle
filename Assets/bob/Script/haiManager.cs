@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
 
 public class haiManager : MonoBehaviour
@@ -24,7 +25,6 @@ public class haiManager : MonoBehaviour
     }
     void OnDestroy()
     {
-        GameObject.Find("GameManager").GetComponent<gameManager>().point += point;
-        GameObject.Find("point").GetComponent<point>().changeText("point:" + GameObject.Find("GameManager").GetComponent<gameManager>().point);
+        GameObject.Find("GameManager").GetComponent<gameManager>().getPoint(point);
     }
 }
