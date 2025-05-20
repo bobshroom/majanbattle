@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3946314559313508353}
   - component: {fileID: 8768884943139472200}
   - component: {fileID: 7443069427942318509}
+  - component: {fileID: -8075442960880655654}
   m_Layer: 0
   m_Name: green
   m_TagString: Untagged
@@ -124,3 +125,30 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.4, y: -0.06}
   m_Radius: 1.44
+--- !u!50 &-8075442960880655654
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8772159774272678896}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 30
+  m_LinearDamping: 5
+  m_AngularDamping: 5
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -183,9 +183,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10000
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_Mass: 1000
+  m_LinearDamping: 2
+  m_AngularDamping: 2
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -330,10 +330,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1964317824760463860}
     m_Modifications:
-    - target: {fileID: -2229350688761479520, guid: ea34b78a1050c3045be7b6dcc2537c2f, type: 3}
-      propertyPath: masatu
-      value: 0.9
-      objectReference: {fileID: 0}
     - target: {fileID: 5510482711815038289, guid: ea34b78a1050c3045be7b6dcc2537c2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

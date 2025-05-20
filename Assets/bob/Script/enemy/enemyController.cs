@@ -6,6 +6,7 @@ public class enemyController : MonoBehaviour
     private Rigidbody2D rb;
     private GameObject player;
     private Transform playerTransform;
+    public bool isSummoning;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,8 +20,18 @@ public class enemyController : MonoBehaviour
     {
         Vector2 direction = (playerTransform.position - transform.position).normalized;
 
-            // プレイヤーの方向に力を加える
-            rb.linearVelocity = direction * moveSpeed * Time.deltaTime;
-
+        // プレイヤーの方向に力を加える
+        //rb.linearVelocity = direction * moveSpeed * Time.deltaTime;
+        if (!isSummoning)
+        {
+            if (rb.linearVelocity.sqrMagnitude < moveSpeed)
+            {
+                rb.AddForce(direction * moveSpeed * Time.deltaTime * 10.0f);
+            }
+            if (rb.linearVelocity.sqrMagnitude < 1.0f)
+            {
+                rb.AddForce(direction * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            }
+        }
     }
 }

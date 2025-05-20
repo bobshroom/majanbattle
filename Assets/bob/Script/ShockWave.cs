@@ -15,16 +15,16 @@ public class ShockWave : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             int k = 0;
-            Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
             Debug.Log(colliders.Length + "個の物体を検知");
-            foreach (Collider hit in colliders)
+            foreach (Collider2D hit in colliders)
             {
                 Rigidbody2D rb = hit.GetComponent<Rigidbody2D>();
                 if (rb != null)
                 {
                     k += 1;
                     Vector3 direction = hit.transform.position - transform.position;
-                    rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
+                    rb.AddForce(direction.normalized * force * rb.mass / 2, ForceMode2D.Impulse);
                 }
             }
             Debug.Log(k + "個のオブジェクトを吹き飛ばしました");

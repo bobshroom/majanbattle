@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1694913335801550918}
   - component: {fileID: 1608399807183222743}
   - component: {fileID: 2482043373948927508}
-  - component: {fileID: 5009187867569195247}
   m_Layer: 0
   m_Name: hai
   m_TagString: Untagged
@@ -162,9 +161,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_Mass: 10
+  m_LinearDamping: 5
+  m_AngularDamping: 5
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -177,16 +176,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5009187867569195247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4784968389190020075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e57f7f0ec565714ab8d663d925f114a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masatu: 0
