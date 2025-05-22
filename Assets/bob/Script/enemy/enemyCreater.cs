@@ -11,7 +11,6 @@ public class enemyCreater : MonoBehaviour
     void Start()
     {
         parent = GameObject.Find("enemy").transform;
-        Invoke(nameof(test), 1.0f);
     }
 
     // Update is called once per frame
@@ -19,11 +18,12 @@ public class enemyCreater : MonoBehaviour
     {
 
     }
-
-    void test(){
-        StartCoroutine(createEnemy(enemy));
+    public void create()
+    {
+        StartCoroutine("createEnemy");
     }
-    IEnumerator createEnemy(GameObject enemy)
+
+    public IEnumerator createEnemy()
     {
         closedDoor.SetActive(false);
         openDoor.SetActive(true);

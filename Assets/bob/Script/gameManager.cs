@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
@@ -19,5 +20,9 @@ public class gameManager : MonoBehaviour
     {
         point += n;
         pointsc.changeText("point:" + point.ToString());
+        if (point >= 136)
+        {
+            SceneManager.LoadScene("ending");
+        }
     }
 }

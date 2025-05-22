@@ -4,6 +4,7 @@ public class ShockWave : MonoBehaviour
 {
     [SerializeField] private float force = 500f;
     public float radius = 5f;
+    [SerializeField] private float confusedTime;
 
     void Start()
     {
@@ -16,7 +17,6 @@ public class ShockWave : MonoBehaviour
         {
             int k = 0;
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
-            Debug.Log(colliders.Length + "個の物体を検知");
             foreach (Collider2D hit in colliders)
             {
                 Rigidbody2D rb = hit.GetComponent<Rigidbody2D>();
@@ -26,8 +26,12 @@ public class ShockWave : MonoBehaviour
                     Vector3 direction = hit.transform.position - transform.position;
                     rb.AddForce(direction.normalized * force * rb.mass / 2, ForceMode2D.Impulse);
                 }
+                enemyController enemyController = hit.GetComponent<enemyController>();
+                if (enemyController != null)
+                {
+                    enemyController.GetConfused(confusedTime);
+                }
             }
-            Debug.Log(k + "個のオブジェクトを吹き飛ばしました");
         }
     }
 }

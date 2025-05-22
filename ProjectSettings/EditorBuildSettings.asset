@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/bob/Scenes/opening.unity
+    guid: 0f547dff8f8d003488f6cde22e6e8386
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/bob/Scenes/haiatume.unity
+    guid: c3849cbfc525a7249a75c5fa1ea77074
+  - enabled: 1
+    path: Assets/bob/Scenes/ending.unity
+    guid: ef81532cbdf90ff44b416f02ae694a08
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
