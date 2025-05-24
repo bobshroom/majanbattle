@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      error-emb_0: -1884918617563787056
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

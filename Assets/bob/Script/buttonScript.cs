@@ -18,4 +18,9 @@ public class buttonScript : MonoBehaviour
     {
         SceneManager.LoadScene("haiatume");
     }
+    public void GoToWebsite(string url)
+    {
+        Application.OpenURL(url);
+        // SceneManager.LoadScene("tobakuro's battle Scene");
+    }
 }

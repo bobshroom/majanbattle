@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      chair-removebg-preview_0: -5639091768469248115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
