@@ -567,9 +567,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   isSummoning: 0
-  pushTime: 0.2
-  pushPower: 5
+  pushTime: 0.3
+  pushPower: 10
   confusedEffect: {fileID: 0}
+  randomPush: 1
 --- !u!61 &1331277778487334119
 BoxCollider2D:
   m_ObjectHideFlags: 0
