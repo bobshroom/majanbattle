@@ -8,45 +8,54 @@ public class haiCreater : MonoBehaviour
 {
     [SerializeField] private GameObject hai;
     [SerializeField] private Transform parent;
-
-    [SerializeField] private float delay;
     [SerializeField] private bool isstope;
     [SerializeField] private List<pai_status> pai_Statuses = new List<pai_status>();
+    [SerializeField] private Transform pai_list;
+    [SerializeField] private int haicount;
+    [SerializeField] private int summonhaiCount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         pai_Statuses = LoadAllPai("Assets/bob/ScriptableObject/pai_script");
         isstope = false;
-        StartCoroutine(createHai(delay));
+        StartCoroutine(createHai(haicount + summonhaiCount));
+        InvokeRepeating("summonHai", 1, 1);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-
+        
+    }
+    void summonHai()
+    {
+        if (pai_list.childCount <= summonhaiCount & pai_Statuses.Count != 0)
+        {
+            StartCoroutine(createHai(haicount));
+        }
     }
 
-    private IEnumerator createHai(float waitTime)
+    private IEnumerator createHai(int count)
     {
-        while (true)
+        if (pai_Statuses.Count == 0)
         {
-            if (isstope)
+            yield break;
+        }
+        if (isstope)
+        {
+            yield break;
+        }
+        for (int i = 0; i < count; i++)
+        {
+            GameObject instant = Instantiate(hai, new Vector2(UnityEngine.Random.Range(-8.0f, 8.0f), UnityEngine.Random.Range(-4.0f, 4.0f)), Quaternion.identity);
+            instant.transform.SetParent(parent);
+            int index = UnityEngine.Random.Range(0, pai_Statuses.Count);
+            instant.GetComponent<haiManager>().pai_Status = pai_Statuses[index];
+            pai_Statuses.RemoveAt(index);
+            if (pai_Statuses.Count == 0)
             {
                 yield break;
             }
-            for (int i = 0; i < 10; i++)
-            {
-                GameObject instant = Instantiate(hai, new Vector2(UnityEngine.Random.Range(-8.0f, 8.0f), UnityEngine.Random.Range(-4.0f, 4.0f)), Quaternion.identity);
-                instant.transform.SetParent(parent);
-                int index = UnityEngine.Random.Range(0, pai_Statuses.Count);
-                instant.GetComponent<haiManager>().pai_Status = pai_Statuses[index];
-                pai_Statuses.RemoveAt(index);
-                if (pai_Statuses.Count == 0)
-                {
-                    yield break;
-                }
-            }
-            yield return new WaitForSeconds(waitTime);
         }
     }
     

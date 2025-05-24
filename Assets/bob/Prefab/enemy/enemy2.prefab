@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 7882795236912004880}
   - component: {fileID: 6964386196908562034}
   - component: {fileID: 2808270934915755833}
-  - component: {fileID: 7085674031211209267}
+  - component: {fileID: 6005924923992300496}
   m_Layer: 6
   m_Name: enemy2
   m_TagString: enemy
@@ -570,8 +570,14 @@ MonoBehaviour:
   pushTime: 9999
   pushPower: 1
   confusedEffect: {fileID: 0}
---- !u!61 &7085674031211209267
-BoxCollider2D:
+  randomPush: 0
+  boss: 0
+  shootdelay: 0
+  reloadTime: 0
+  shootsprite: {fileID: 0}
+  bullet: {fileID: 0}
+--- !u!70 &6005924923992300496
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -605,17 +611,8 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.46, y: 9.74}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 6.46, y: 9.74}
-  m_EdgeRadius: 0
+  m_Size: {x: 6.4599996, y: 9.739999}
+  m_Direction: 0
 --- !u!1 &5745781139232683677
 GameObject:
   m_ObjectHideFlags: 0

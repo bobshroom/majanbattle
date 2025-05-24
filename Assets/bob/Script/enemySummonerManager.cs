@@ -5,6 +5,7 @@ public class enemySummonerManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> doors;
     [SerializeField] private List<enemyCreater> enemyCreaters;
+    [SerializeField] List<GameObject> enemylist = new List<GameObject>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,16 +21,16 @@ public class enemySummonerManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            enemyCreaters[0].create();
+            enemyCreaters[1].create(enemylist[1]);
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            enemyCreaters[1].create();
+            enemyCreaters[0].create(enemylist[0]);
         }
     }
-    public void create(int i)
+    public void create(int doorid, int enemyid)
     {
-        enemyCreaters[i].create();
+        enemyCreaters[doorid].create(enemylist[enemyid]);
     }
 }

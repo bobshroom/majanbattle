@@ -23,10 +23,15 @@ public class enemyController : MonoBehaviour
     [SerializeField] private GameObject shootsprite;
     private bool isShooting;
     private SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer2;
     [SerializeField] GameObject bullet;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (boss)
+        {
+            spriteRenderer2 = shootsprite.GetComponent<SpriteRenderer>();
+        }
         spriteRenderer = GetComponent<SpriteRenderer>();
         time = shootdelay;
         rb = GetComponent<Rigidbody2D>();
@@ -108,6 +113,15 @@ public class enemyController : MonoBehaviour
         Vector2 direction = (playerTransform.position - transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         shootsprite.transform.eulerAngles = new Vector3(0, 0, angle);
+        if (shootsprite.transform.eulerAngles.z <= 270.0f & shootsprite.transform.eulerAngles.z >= 90.0f)
+        {
+            spriteRenderer2.flipX = true;
+            shootsprite.transform.eulerAngles = new Vector3(0, 0, angle + 180.0f);
+        }
+        else
+        {
+            spriteRenderer2.flipX = false;
+        }
         GetComponent<SpriteRenderer>().enabled = false;
         shootsprite.GetComponent<SpriteRenderer>().enabled = true;
         time = shootdelay;
@@ -123,7 +137,7 @@ public class enemyController : MonoBehaviour
             yield return new WaitForSeconds(reloadTime / 100.0f);
         }
         GameObject instant = Instantiate(bullet, transform.position, quaternion.identity);
-        instant.transform.eulerAngles = shootsprite.transform.eulerAngles / 2.0f;
+        instant.transform.eulerAngles = new Vector3(0, 0, angle) / 2.0f;
         yield return new WaitForSeconds(reloadTime / 10.0f);
         GetComponent<SpriteRenderer>().enabled = true;
         shootsprite.GetComponent<SpriteRenderer>().enabled = false;

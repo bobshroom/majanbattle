@@ -7,6 +7,8 @@ public class enemyCreater : MonoBehaviour
     [SerializeField] private GameObject openDoor;
     [SerializeField] private GameObject enemy;
     private Transform parent;
+    [SerializeField] private bool special;
+    private bool DONTDOTHIS = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,28 +20,53 @@ public class enemyCreater : MonoBehaviour
     {
 
     }
-    public void create()
+    public void create(GameObject createnemy)
     {
-        StartCoroutine("createEnemy");
+        StartCoroutine(createEnemy(createnemy));
     }
 
-    public IEnumerator createEnemy()
+    public IEnumerator createEnemy(GameObject createEnemy)
     {
-        closedDoor.SetActive(false);
-        openDoor.SetActive(true);
+        if (!special)
+        {
+            closedDoor.SetActive(false);
+            openDoor.SetActive(true);
+        }
+        else
+        {
+            if (DONTDOTHIS)
+            {
+                yield break;
+            }
+            DONTDOTHIS = true;
+            Debug.Log("豪華ドアを開きます");
+            GetComponent<Animator>().SetTrigger("open");
+            yield return new WaitForSeconds(2.0f);
+        }
         yield return new WaitForSeconds(0.5f);
-        GameObject instant = Instantiate(enemy, transform.position, Quaternion.identity);
+        GameObject instant = Instantiate(createEnemy, transform.position, Quaternion.identity);
         instant.GetComponent<enemyController>().isSummoning = true;
+        //instant.GetComponent<PolygonCollider2D>().enabled = false;
         for (int i = 0; i < 500; i++)
         {
-            instant.transform.position = transform.position + -transform.up * (i - 250) * 0.003f;
+            instant.transform.position = transform.position + -transform.up * (i - 250) * 0.004f;
             yield return null;
         }
         yield return new WaitForSeconds(0.5f);
         instant.GetComponent<enemyController>().isSummoning = false;
+        //instant.GetComponent<PolygonCollider2D>().enabled = true;
         yield return new WaitForSeconds(0.5f);
-        closedDoor.SetActive(true);
-        openDoor.SetActive(false);
         instant.transform.parent = parent;
+        if (!special)
+        {
+            closedDoor.SetActive(true);
+            openDoor.SetActive(false);
+        }
+        else
+        {
+            GetComponent<Animator>().SetTrigger("close");
+            yield return new WaitForSeconds(2.0f);
+            DONTDOTHIS = false;
+        }
     }
 }

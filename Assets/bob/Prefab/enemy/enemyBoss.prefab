@@ -534,7 +534,8 @@ GameObject:
   - component: {fileID: 7882795236912004880}
   - component: {fileID: 6964386196908562034}
   - component: {fileID: 2808270934915755833}
-  - component: {fileID: 2472138594309769899}
+  - component: {fileID: 8161389437941311910}
+  - component: {fileID: 2520051942942872887}
   m_Layer: 6
   m_Name: enemyBoss
   m_TagString: enemy
@@ -555,8 +556,8 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7708404256550378921}
   - {fileID: 6489907557694223404}
+  - {fileID: 7708404256550378921}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7882795236912004880
@@ -660,11 +661,11 @@ MonoBehaviour:
   confusedEffect: {fileID: 0}
   randomPush: 0
   boss: 1
-  shootdelay: 1
+  shootdelay: 3
   reloadTime: 0.5
   shootsprite: {fileID: 134957077259354145}
   bullet: {fileID: 6857259920464782055, guid: 02d31a33fcc0afb4b90e80bf82cabd47, type: 3}
---- !u!61 &2472138594309769899
+--- !u!61 &8161389437941311910
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -698,7 +699,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.9104414, y: -4.4794083}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -708,8 +709,44 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 18.124289, y: 25.57}
+  m_Size: {x: 16.303404, y: 16.611183}
   m_EdgeRadius: 0
+--- !u!58 &2520051942942872887
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229499131235581980}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.85045993, y: 8.543249}
+  m_Radius: 3.8551772
 --- !u!1 &5745781139232683677
 GameObject:
   m_ObjectHideFlags: 0
