@@ -52,9 +52,10 @@ public class enemyCreater : MonoBehaviour
         GameObject instant = Instantiate(createEnemy, transform.position, Quaternion.identity);
         instant.GetComponent<enemyController>().isSummoning = true;
         //instant.GetComponent<PolygonCollider2D>().enabled = false;
-        for (int i = 0; i < 500; i++)
+        for (float i = 0; i < 500; i++)
         {
             instant.transform.position = transform.position + -transform.up * (i - 250) * 0.004f;
+            i += Time.deltaTime * 150.0f;
             yield return null;
         }
         yield return new WaitForSeconds(0.5f);

@@ -20,6 +20,7 @@ public class gameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        clearTime = 0.0f;
         pointsc = GameObject.Find("point").GetComponent<point>();
         isTimerStart = true;
         esm = enemySummonerManager.GetComponent<enemySummonerManager>();

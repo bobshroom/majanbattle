@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class buttonScript : MonoBehaviour
 {
+    [SerializeField] GameObject howToPlayObj;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,7 +13,10 @@ public class buttonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Escape) & gameObject.name == "howtoplaybutton")
+        {
+            howToPlayObj.SetActive(false);
+        }
     }
     public void GameStart()
     {
@@ -22,5 +26,9 @@ public class buttonScript : MonoBehaviour
     {
         Application.OpenURL(url);
         // SceneManager.LoadScene("tobakuro's battle Scene");
+    }
+    public void howToPlay()
+    {
+        howToPlayObj.SetActive(true);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerManager : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class playerManager : MonoBehaviour
             hp -= 10;
             if (hp <= 0)
             {
+                SceneManager.LoadScene("ending");
                 Destroy(gameObject);
             }
             StartCoroutine(muteki(mutekizikan));
