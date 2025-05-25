@@ -14,6 +14,9 @@ public class gameManager : MonoBehaviour
     public bool endlessmode = false;
     [SerializeField] private GameObject enemySummonerManager;
     private enemySummonerManager esm;
+    private bool gameOver = false;
+    [SerializeField] private GameObject gameOverWin;
+    [SerializeField] private GameObject enemyList;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,7 +28,7 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isTimerStart)
+        if (isTimerStart & !gameOver)
         {
             clearTime += Time.deltaTime;
         }
@@ -71,7 +74,7 @@ public class gameManager : MonoBehaviour
                     esm.create(4, 3);
                     index = -2;
                     break;
-                    
+
             }
             index++;
         }
@@ -79,10 +82,16 @@ public class gameManager : MonoBehaviour
     public void getPoint(int n)
     {
         point += n;
-        pointsc.changeText("point:" + point.ToString());
-        if (point >= 136)
+        pointsc.changeText(":" + point.ToString());
+        if (point >= 136 & !gameOver)
         {
-            SceneManager.LoadScene("ending");
+            GameOver(true);
+            gameOver = true;
         }
+    }
+    void GameOver(bool isclear)
+    {
+        enemyList.SetActive(false);
+        gameOverWin.SetActive(true);
     }
 }

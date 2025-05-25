@@ -9,10 +9,14 @@ public class enemyCreater : MonoBehaviour
     private Transform parent;
     [SerializeField] private bool special;
     private bool DONTDOTHIS = false;
+    [SerializeField] private AudioClip dooropen;
+    [SerializeField] private AudioClip doorclose;
+    private AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         parent = GameObject.Find("enemy").transform;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,6 +31,7 @@ public class enemyCreater : MonoBehaviour
 
     public IEnumerator createEnemy(GameObject createEnemy)
     {
+        audioSource.PlayOneShot(dooropen);
         if (!special)
         {
             closedDoor.SetActive(false);
@@ -57,6 +62,7 @@ public class enemyCreater : MonoBehaviour
         //instant.GetComponent<PolygonCollider2D>().enabled = true;
         yield return new WaitForSeconds(0.5f);
         instant.transform.parent = parent;
+        audioSource.PlayOneShot(doorclose);
         if (!special)
         {
             closedDoor.SetActive(true);

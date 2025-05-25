@@ -24,10 +24,14 @@ public class enemyController : MonoBehaviour
     private bool isShooting;
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer spriteRenderer2;
-    [SerializeField] GameObject bullet;
+    [SerializeField] private GameObject bullet;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip gunreload;
+    [SerializeField] private AudioClip gunShot;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         if (boss)
         {
             spriteRenderer2 = shootsprite.GetComponent<SpriteRenderer>();
@@ -109,7 +113,7 @@ public class enemyController : MonoBehaviour
     }
     IEnumerator shoot()
     {
-        
+        audioSource.PlayOneShot(gunreload);
         Vector2 direction = (playerTransform.position - transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         shootsprite.transform.eulerAngles = new Vector3(0, 0, angle);
@@ -137,7 +141,8 @@ public class enemyController : MonoBehaviour
             yield return new WaitForSeconds(reloadTime / 100.0f);
         }
         GameObject instant = Instantiate(bullet, transform.position, quaternion.identity);
-        instant.transform.eulerAngles = new Vector3(0, 0, angle) / 2.0f;
+        audioSource.PlayOneShot(gunShot);
+        instant.transform.eulerAngles = new Vector3(0, 0, angle);
         yield return new WaitForSeconds(reloadTime / 10.0f);
         GetComponent<SpriteRenderer>().enabled = true;
         shootsprite.GetComponent<SpriteRenderer>().enabled = false;

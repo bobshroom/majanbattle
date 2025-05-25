@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7037206371611934625}
   - component: {fileID: 8721919889829510413}
   - component: {fileID: -2261320331886159575}
-  m_Layer: 0
+  - component: {fileID: 907401121767689212}
+  m_Layer: 8
   m_Name: ebibullet
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41596a1c806f3ba448e2df29672a2beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 279.3
 --- !u!58 &-2261320331886159575
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,3 +139,30 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.49999997
+--- !u!50 &907401121767689212
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857259920464782055}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
